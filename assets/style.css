@@ -1,0 +1,204 @@
+/* Ana Clara Torres Ribeiro — página em memória
+   Tom: sóbrio, afetivo e alegre — creme, verde profundo (esperança), dourado (sol) */
+
+:root {
+  --bg: #FAF5EB;
+  --card: #FFFEF9;
+  --ink: #2C2A25;
+  --ink-soft: #5A564D;
+  --green: #35624E;
+  --green-dark: #26493A;
+  --gold: #DFA33C;
+  --gold-soft: #F4E3BC;
+  --terracotta: #C4673F;
+  --line: #E7DEC9;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Karla", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 { font-family: var(--serif); color: var(--green-dark); line-height: 1.2; }
+
+a { color: var(--green); }
+a:hover { color: var(--terracotta); }
+
+/* ---------- Navegação ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem 1rem;
+  padding: 0.7rem clamp(1rem, 4vw, 2.5rem);
+  background: rgba(250, 245, 235, 0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand {
+  font-family: var(--serif); font-weight: 600; font-size: 1.05rem;
+  color: var(--green-dark); text-decoration: none;
+}
+.nav-links { display: flex; gap: 1.2rem; list-style: none; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+}
+.nav-links a:hover { color: var(--terracotta); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem) clamp(2rem, 5vw, 3.5rem);
+  background:
+    radial-gradient(circle at 82% 18%, var(--gold-soft) 0%, rgba(244, 227, 188, 0) 42%),
+    var(--bg);
+}
+.hero-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; align-items: center; gap: clamp(1.5rem, 5vw, 4rem);
+  flex-wrap: wrap;
+}
+.hero-photo { flex: 0 1 340px; max-width: 340px; }
+.hero-photo img {
+  width: 100%; display: block;
+  border-radius: 14px;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 30px rgba(44, 42, 37, 0.18), 0 0 0 1px var(--line);
+}
+.hero-photo figcaption {
+  margin-top: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); font-style: italic;
+  text-align: center;
+}
+.hero-text { flex: 1 1 320px; }
+.hero-kicker {
+  text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.8rem;
+  font-weight: 700; color: var(--terracotta); margin-bottom: 0.6rem;
+}
+.hero h1 { font-size: clamp(2.3rem, 6vw, 3.6rem); font-weight: 600; }
+.hero-dates {
+  margin-top: 0.9rem; font-family: var(--serif); font-size: 1.15rem;
+  color: var(--ink-soft); font-style: italic;
+}
+.hero-role { margin-top: 0.5rem; font-weight: 600; color: var(--green); }
+
+/* ---------- Faixa de citação ---------- */
+.quote-band {
+  background: var(--green);
+  color: #F6F1E3;
+  text-align: center;
+  padding: clamp(1.8rem, 4vw, 2.6rem) 1rem;
+}
+.quote-band blockquote p {
+  font-family: var(--serif); font-size: clamp(1.7rem, 4.5vw, 2.5rem); font-weight: 500;
+}
+.quote-band cite { display: block; margin-top: 0.5rem; font-style: italic; opacity: 0.85; font-size: 0.95rem; }
+
+/* ---------- Seções ---------- */
+.section {
+  max-width: 900px; margin: 0 auto;
+  padding: clamp(2.2rem, 5vw, 3.4rem) clamp(1rem, 4vw, 2.5rem) 0;
+}
+.section h2 {
+  font-size: clamp(1.7rem, 4vw, 2.2rem); font-weight: 600;
+  padding-bottom: 0.5rem; margin-bottom: 1.3rem;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+}
+.prose p { margin-bottom: 1rem; }
+.prose strong { color: var(--green-dark); }
+
+/* ---------- Linha do tempo ---------- */
+.timeline-title, .cards-title { font-size: 1.25rem; margin: 2rem 0 1rem; }
+.cards-title small { font-family: var(--sans); font-size: 0.85rem; font-weight: 400; color: var(--ink-soft); }
+.timeline { list-style: none; position: relative; padding-left: 1.6rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 0.35rem; top: 0.4rem; bottom: 0.4rem;
+  width: 2px; background: var(--line);
+}
+.timeline li { position: relative; padding: 0.45rem 0 0.45rem 0.8rem; }
+.timeline li::before {
+  content: ""; position: absolute; left: -1.6rem; top: 0.95rem;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--green);
+}
+.tl-year {
+  display: inline-block; min-width: 6.5rem; padding-right: 0.6rem;
+  font-family: var(--serif); font-weight: 600; color: var(--terracotta);
+}
+.tl-text { color: var(--ink); }
+
+/* ---------- Cartões ---------- */
+.cards {
+  display: grid; gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 0.5rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 3px 12px rgba(44, 42, 37, 0.06);
+}
+.card-tag {
+  text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem;
+  font-weight: 700; color: var(--terracotta); margin-bottom: 0.45rem;
+}
+.card h4 { font-size: 1.12rem; margin-bottom: 0.5rem; }
+.card p { font-size: 0.97rem; color: var(--ink-soft); }
+.card-link {
+  display: inline-block; margin-top: 0.7rem; font-weight: 700; font-size: 0.92rem;
+  text-decoration: none;
+}
+
+/* ---------- Citação de homenagem ---------- */
+.tribute-quote {
+  margin: 1.2rem 0 0.4rem; padding: 1.1rem 1.4rem;
+  background: var(--card); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0;
+}
+.tribute-quote p { font-family: var(--serif); font-style: italic; font-size: 1.08rem; color: var(--green-dark); }
+.tribute-quote cite { display: block; margin-top: 0.6rem; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* ---------- Memórias e galeria ---------- */
+.memorias-box {
+  background: var(--card); border: 1px dashed var(--gold);
+  border-radius: 10px; padding: 1.6rem; text-align: center;
+}
+.memorias-note { color: var(--ink-soft); font-style: italic; }
+.gallery figure { max-width: 460px; margin: 0.4rem auto 0; }
+.gallery img {
+  width: 100%; border-radius: 10px; border: 4px solid #fff;
+  box-shadow: 0 6px 18px rgba(44, 42, 37, 0.14); display: block;
+}
+.gallery figcaption { text-align: center; font-size: 0.85rem; color: var(--ink-soft); font-style: italic; margin-top: 0.5rem; }
+.gallery-note { text-align: center; color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
+
+/* ---------- Links ---------- */
+.links-list { list-style: none; }
+.links-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+.links-list a { font-weight: 600; text-decoration: none; }
+.links-list a:hover { text-decoration: underline; }
+.links-list a::after { content: " ↗"; color: var(--gold); }
+
+/* ---------- Rodapé ---------- */
+.footer {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  background: var(--green-dark); color: #EDE6D2;
+  text-align: center; padding: 2.2rem 1rem 2rem;
+}
+.footer-quote { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 0.6rem; color: var(--gold-soft); }
+.footer p { font-size: 0.92rem; opacity: 0.9; }
+
+@media (max-width: 640px) {
+  .hero-inner { flex-direction: column; text-align: center; }
+  .hero-photo { margin: 0 auto; }
+  .tl-year { display: block; min-width: 0; }
+}
